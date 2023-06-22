@@ -2,6 +2,8 @@ package com.example.test
 
 import android.content.res.AssetManager
 import android.util.Log
+import androidx.databinding.BaseObservable
+import androidx.databinding.ObservableBoolean
 import com.mv.engine.FaceBox
 import com.mv.engine.FaceDetector
 import com.mv.engine.Live
@@ -9,11 +11,10 @@ import com.mv.engine.BlurDetector
 
 
 class EngineWrapper(private var assetManager: AssetManager) {
+    var blurDetectorResult:Boolean = true
     private var faceDetector: FaceDetector = FaceDetector() // Face Detector
     private var live: Live = Live() // Face classify (live / spoof)
     private var blur: BlurDetector = BlurDetector() // Detect blur or not blur
-
-
     // Load model detection and load model classify live / spoof
     fun init(): Boolean {
         var ret = faceDetector.loadModel(assetManager)
@@ -55,7 +56,8 @@ class EngineWrapper(private var assetManager: AssetManager) {
     }
 
     fun detectBlur(yuv: ByteArray, width: Int, height: Int): Boolean {
-        return blur.detect_blur(yuv, width, height)
+        blurDetectorResult = blur.detect_blur(yuv, width, height)
+        return blurDetectorResult
     }
 
     private fun detectFace(

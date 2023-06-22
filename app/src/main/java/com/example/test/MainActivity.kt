@@ -26,6 +26,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.test.databinding.ActivityMainBinding
+import com.mv.engine.BlurDetector
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.launch
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var cameraViewModel:CameraViewModel = CameraViewModel()
+
     private var isAutoSave = true
     private var timeSaveImg = 20000
     private var timeSaveImgInterval = 500
@@ -224,6 +226,8 @@ class MainActivity : AppCompatActivity() {
                                     previewWidth,
                                     previewHeight
                                 )
+                                binding.engineWrapper = engineWrapper
+                                Log.d("ngoclh", "resultBlur: "+resultBlur)
 
                                 // Check detect blur or not blur
                                 if (resultBlur){

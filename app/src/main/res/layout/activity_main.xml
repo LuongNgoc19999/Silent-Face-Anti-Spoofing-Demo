@@ -15,6 +15,9 @@
         <variable
             name="viewModel"
             type="com.example.test.CameraViewModel" />
+        <variable
+            name="engineWrapper"
+            type="com.example.test.EngineWrapper" />
     </data>
 
     <RelativeLayout
@@ -181,5 +184,17 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/real_face_color"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="@{engineWrapper.blurDetectorResult ? @string/blur_true : @string/blur_false}"/>
+
+<!--        android:text="@{engineWrapper ? @string/blur_true : @string/blur_false}"-->
     </RelativeLayout>
 </layout>

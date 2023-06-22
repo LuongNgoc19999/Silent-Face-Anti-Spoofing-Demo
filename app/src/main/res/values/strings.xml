@@ -7,4 +7,6 @@
     <string name="set_threshold_dialog_text_hint">Threshold range 0–1, recommended threshold 0.915</string>
     <string name="set_threshold_dialog_confirm">Sure</string>
     <string name="set_threshold_dialog_hint">Please enter a threshold</string>
+    <string name="blur_false">Blur detection</string>
+    <string name="blur_true">Not blur detection</string>
 </resources>
